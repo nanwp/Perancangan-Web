@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+            Hallo para web desainer muda, 
+        jangan takut dan bimbang karena menjadi seorang web desainer itu sangat mudah loh. 
+        anda tidak perlu menjadi seorang yang ahli menggambar atau ahli desain. 
+        anda cukup membaca, mempelajari, dan menerapkan buku yang relevan tentang perancangan dan pemrograman web 
+        dan tentunya untuk tetap awak ini, kalian harus mengukuti kuliah dan praktikum 
+        perancangan web dengan giat dan rajin :0.
+    </pre>
+
+    <pre>
+        func DetailHandle(w http.ResponseWriter, r *http.Request){
+            if r.Method == "GET" {
+                tmpl, err := template.ParseFiles(path.Join("views", "detailmahasiswa.html"), path.Join("views", "layout.html"))
+        
+                if err != nil {
+                    log.Println(err)
+                    http.Error(w, "ERROR LAGI", http.StatusInternalServerError)
+                    return
+                }
+        
+                err = tmpl.Execute(w, nil)
+        
+                if err != nil {
+                    log.Println()
+                    http.Error(w, "EROR KOSONG", http.StatusInternalServerError)
+                    return
+                }
+                return
+            }
+            http.Error(w, "ERROR CUY", http.StatusBadRequest)
+        }
+    </pre>
+</body>
+</html>
